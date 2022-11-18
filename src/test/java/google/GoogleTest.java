@@ -3,16 +3,25 @@ package google;
 
 import org.junit.After;
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-public class GoogleTest {
+import java.time.Duration;
+
+public class GoogleTest<BuscaGooglePage> {
     WebDriver driver;
+    @Before
+    public void abrirBrowser() {
+        driver = new ChromeDriver();
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
+        driver.manage().window().maximize();
+
+    }
     @Test
     public void testGoogle() throws InterruptedException {
-        driver = new ChromeDriver();
         driver.get("https://www.google.com/");
         driver.manage().window().maximize();
         driver.findElement(By.name("q")).sendKeys("Rosas de Ouro");
@@ -23,10 +32,27 @@ public class GoogleTest {
                 Assert.assertEquals("https://sociedaderosasdeouro.com.br", texto);
 
     }
-    @After
-    public void fecharBrowser(){
-        driver.quit();
 
-    }
+    @Test
+    public void testeGoogle() throws InterruptedException {
+        driver.get("https://www.google.com/");
+        BuscaGooglepag buscaGooglepag = new BuscaGooglepag();
+        buscaGooglepag.preencherCampoBusca(driver);
+        buscaGooglepag.clicarResultadoBusca(driver);
+        RetornoGooglepag retornoGooglepag = new RetornoGooglepag();
+        retornoGooglepag.textoRetorno(driver);
+
+
+       }
+
+
+
+
 }
+
+
+
+
+
+
 
