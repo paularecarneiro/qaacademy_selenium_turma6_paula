@@ -1,5 +1,6 @@
 package register;
 
+import org.junit.After;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -59,23 +60,28 @@ public class RegisterTest {
         registerPag = new Registerpag(driver);
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(5));
         driver.get("https://demo.automationtesting.in/Register.html");
 
-        registerPag.preencherNome();
-        registerPag.preencherSobrenome();
-        registerPag.preencherEndereço();
-        registerPag.preencherEmail();
-        registerPag.preencherTelefone();
+        registerPag.preencherNome("Paula");
+        registerPag.preencherSobrenome("Renata");
+        registerPag.preencherEndereço("Rua Almotacel, Brasilandia");
+        registerPag.preencherEmail("paula.renata@testes.com");
+        registerPag.preencherTelefone("11 945288396");
         registerPag.selecioneGenero();
         registerPag.selecHobbies();
-        registerPag.selecSkills();
+        registerPag.selecSkills("Java");
         registerPag.seleccountry();
         registerPag.selecionarseleccountry();
-        registerPag.preencherAno();
-        registerPag.preencherMes();
-        registerPag.preencherDia();
+        registerPag.preencherAno("1986");
+        registerPag.preencherMes("June");
+        registerPag.preencherDia("7");
 
 
     }
+    //@After
+    //public void fecharBrowser(){ driver.quit();
+
+    //}
 }
 

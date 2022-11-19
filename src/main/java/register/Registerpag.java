@@ -35,24 +35,24 @@ public class Registerpag {
 
     //criando os metodos public void preencher e selecionar
     //criando ações sendKeys e click
-    public void preencherNome() {
-        driver.findElement(By.xpath(NOME)).sendKeys("Paula");
+    public void preencherNome(String nome) {
+        driver.findElement(By.xpath(NOME)).sendKeys(nome);
     }
 
-    public void preencherSobrenome() {
-        driver.findElement(By.xpath(SOBRENOME)).sendKeys("Renata");
+    public void preencherSobrenome(String sobrenome) {
+        driver.findElement(By.xpath(SOBRENOME)).sendKeys(sobrenome);
     }
 
-    public void preencherEndereço() {
-        driver.findElement(By.xpath(ENDEREÇO)).sendKeys("Rua Almotacel, Brasilandia");
+    public void preencherEndereço(String endereco) {
+        driver.findElement(By.xpath(ENDEREÇO)).sendKeys(endereco);
     }
 
-    public void preencherEmail() {
-        driver.findElement(By.xpath(EMAIL)).sendKeys("paula.renata@testes.com");
+    public void preencherEmail(String email) {
+        driver.findElement(By.xpath(EMAIL)).sendKeys(email);
     }
 
-    public void preencherTelefone() {
-        driver.findElement(By.xpath(TELEFONE)).sendKeys("11 945288396");
+    public void preencherTelefone(String telefone) {
+        driver.findElement(By.xpath(TELEFONE)).sendKeys(telefone);
     }
 
     public void selecioneGenero(){
@@ -63,9 +63,9 @@ public class Registerpag {
         driver.findElement(By.xpath(SELECHOBBIES)).click();
     }
 
-    public void selecSkills(){
+    public void selecSkills(String Skilss){
         Select skills = new Select(driver.findElement(By.id(SKILLS)));
-            skills.selectByVisibleText("Java");
+            skills.selectByVisibleText(Skilss);
     }
 public void seleccountry(){
         driver.findElement(By.xpath(COUNTRY)).click();
@@ -73,17 +73,17 @@ public void seleccountry(){
 public void selecionarseleccountry(){
         driver.findElement(By.xpath(SELECTCOUNTRY)).click();
     }
-public void preencherAno(){
+public void preencherAno(String anos){
     Select ano = new Select(driver.findElement(By.id(ANO)));
-    ano.selectByVisibleText("1986");
+    ano.selectByVisibleText(anos);
 }
-public void preencherMes(){
+public void preencherMes(String meses){
     Select mes = new Select(driver.findElement(By.xpath(MES)));
-    mes.selectByVisibleText("June");
+    mes.selectByVisibleText(meses);
         }
-public void preencherDia(){
+public void preencherDia(String dias){
     Select dia = new Select(driver.findElement(By.id(DIA)));
-    dia.selectByVisibleText("7");
+    dia.selectByVisibleText(dias);
 
 }
 
