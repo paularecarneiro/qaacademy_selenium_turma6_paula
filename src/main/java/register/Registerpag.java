@@ -2,6 +2,7 @@ package register;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.Select;
 
 public class Registerpag {
     WebDriver driver;
@@ -15,6 +16,18 @@ public class Registerpag {
     String SELEÇAOGENERO = "//*[@id=\"basicBootstrapForm\"]/div[5]/div/label[2]/input";
 
     String SELECHOBBIES = "//input[@value='Movies']";
+
+    String SKILLS = "Skills";
+
+    String COUNTRY = "//*[@id=\"basicBootstrapForm\"]/div[10]/div/span/span[1]/span";
+
+    String SELECTCOUNTRY = "//*[@id=\"select2-country-results\"]/li[3]";
+
+    String ANO = "yearbox";
+
+    String MES = "//*[@id=\"basicBootstrapForm\"]/div[11]/div[2]/select";
+
+    String DIA = "daybox";
 
     public Registerpag(WebDriver driverParametro){ //modificando construtor padrão
         this.driver = driverParametro;
@@ -49,5 +62,29 @@ public class Registerpag {
     public void selecHobbies(){
         driver.findElement(By.xpath(SELECHOBBIES)).click();
     }
+
+    public void selecSkills(){
+        Select skills = new Select(driver.findElement(By.id(SKILLS)));
+            skills.selectByVisibleText("Java");
+    }
+public void seleccountry(){
+        driver.findElement(By.xpath(COUNTRY)).click();
+        }
+public void selecionarseleccountry(){
+        driver.findElement(By.xpath(SELECTCOUNTRY)).click();
+    }
+public void preencherAno(){
+    Select ano = new Select(driver.findElement(By.id(ANO)));
+    ano.selectByVisibleText("1986");
+}
+public void preencherMes(){
+    Select mes = new Select(driver.findElement(By.xpath(MES)));
+    mes.selectByVisibleText("June");
+        }
+public void preencherDia(){
+    Select dia = new Select(driver.findElement(By.id(DIA)));
+    dia.selectByVisibleText("7");
+
+}
 
 }

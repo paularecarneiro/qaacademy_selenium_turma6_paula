@@ -36,6 +36,7 @@ public class RegisterTest {
         Select skills = new Select(driver.findElement(By.id("Skills")));
         Thread.sleep(1000);
         skills.selectByVisibleText("Java");
+
         driver.findElement(By.xpath("//*[@id=\"basicBootstrapForm\"]/div[10]/div/span/span[1]/span")).click();
         Thread.sleep(1000);
         driver.findElement(By.xpath("//*[@id=\"select2-country-results\"]/li[3]")).click();
@@ -67,7 +68,12 @@ public class RegisterTest {
         registerPag.preencherTelefone();
         registerPag.selecioneGenero();
         registerPag.selecHobbies();
-
+        registerPag.selecSkills();
+        registerPag.seleccountry();
+        registerPag.selecionarseleccountry();
+        registerPag.preencherAno();
+        registerPag.preencherMes();
+        registerPag.preencherDia();
 
 
     }
