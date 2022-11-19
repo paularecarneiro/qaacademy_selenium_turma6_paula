@@ -12,7 +12,7 @@ import static java.lang.Thread.sleep;
 
 public class RegisterTest {
     WebDriver driver;
-
+    Registerpag registerPag;
     @Test
     public void testRegister() throws InterruptedException {
         driver = new ChromeDriver();
@@ -51,6 +51,23 @@ public class RegisterTest {
 
         Select dia = new Select(driver.findElement(By.id("daybox")));
         dia.selectByVisibleText("7");
+    }
+    @Test
+    public void Registerpag () {
+        driver = new ChromeDriver();
+        registerPag = new Registerpag(driver);
+        driver.manage().window().maximize();
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        driver.get("https://demo.automationtesting.in/Register.html");
+
+        registerPag.preencherNome();
+        registerPag.preencherSobrenome();
+        registerPag.preencherEndereço();
+        registerPag.preencherEmail();
+        registerPag.preencherTelefone();
+        registerPag.selecioneGenero();
+        registerPag.selecHobbies();
+
 
 
     }
